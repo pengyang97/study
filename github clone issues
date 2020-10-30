@@ -1,0 +1,12 @@
+在从github上下载源码链接的时候虽然我们可以看到有我们想要版本的branch，但是code下的默认下载链接不一定是我们想要的branch，所以clone下来之后需要手动选择一下自己需要的branch
+我当时是需要下载ros-planing-navigation/navigation功能包。我根据github上的源码在catkin_study/src/目录下执行命令-git clone https://github.com/ros-planning/navigation.git-
+下载后返回到工作空间进行编译-catkin_make-结果就出现了类似（这个错误是在网上出现的和我一样的一个错误）
+-CMake Error at /opt/ros/kinetic/share/catkin/cmake/catkin_workspace.cmake:95 (message):
+This workspace contains non-catkin packages in it, and catkin cannot build
+a non-homogeneous workspace without isolation.  Try the
+'catkin_make_isolated' command instead.
+Call Stack (most recent call first):
+CMakeLists.txt:63 (catkin_workspace)-
+这时候就需要手动来解决问题了
+首先cd ~/catkin_study/src/navigation/接着执行--git branch--会显示目前branch，可以看到版本不是自己需要的版本
+接着执行命令--git checkout kinetic-devel--这时就可以将branch换成我自己需要的版本，再次--git branch--一下可以看到是自己需要的版本，之后就可以返回到工作空间下进行正常的编译！
