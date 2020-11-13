@@ -4,3 +4,10 @@ subscriber读取到数据后就会将它放置与自己的消息队列中，等�
 
 在使用cartographer ros保存地图的时候不可以在使用rosrun mapserver进行地图的保存而是使用--rosservice call /write_state "{filename: '${HOME}/Downloads/mymap.pbstream'}"生成格式为.pbstream格式的文件，
 随后在使用--rosrun cartographer_ros cartographer_pbstream_to_ros_map -map_filestem=${HOME}/Downloads/mymap -pbstream_filename=${HOME}/Downloads/mymap.pbstream -resolution=0.05生成对应的pgm和yaml，放于${HOME}/Downloads/mymap目录下
+
+运行roscore时候报错： `Unable to contact my own server at（https://blog.csdn.net/linyijiong/article/details/81413329）`
+```
+$ export ROS_HOSTNAME=localhost
+$ export ROS_MASTER_URI=http://localhost:11311
+```
+其中localhost查看方法：输入：`hostname -I`
