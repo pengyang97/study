@@ -11,3 +11,6 @@ $ export ROS_HOSTNAME=localhost
 $ export ROS_MASTER_URI=http://localhost:11311
 ```
 其中localhost查看方法：输入：`hostname -I`
+
+* 在配置firefly主从机的时候，可能会出现在从机可以看到主机发布的话题，但是echo不到某一个话题的具体信息，这种情况就是在配置主从的时候没有配好，需要执行下面的命令
+`sudo vim /etc/hosts`在里面加上`10.0.1.1 firefly`就可以了
