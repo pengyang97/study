@@ -14,3 +14,6 @@ $ export ROS_MASTER_URI=http://localhost:11311
 
 * 在配置firefly主从机的时候，可能会出现在从机可以看到主机发布的话题，但是echo不到某一个话题的具体信息，这种情况就是在配置主从的时候没有配好，需要执行下面的命令
 `sudo vim /etc/hosts`在里面加上`10.0.1.1 firefly`就可以了
+
+* 自己在启动roscore的时候会遇到启动不成功的现象，比如说换一个网就不能启动后就需要ifconfig一下查看当前的IP地址，这个是很操蛋的，解决的方法就是在.bashrc文件中
+加入这句`export ROS_HOSTNAME=127.0.0.1`，换成自己的内网就行了。在/etc/hosts中自己的内网IP就是127.0.0.1。
